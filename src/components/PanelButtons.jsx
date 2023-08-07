@@ -44,7 +44,7 @@ const PanelButtons = () => {
         dispatch(setValue(elem));
 
         if (
-          formula.match(/[1-9]/g) &&
+          formula.match(/[1-9.]/g) &&
           !["/", "*", "-", "+"].includes(lastItem)
         ) {
           return dispatch(setFormula(formula + elem));
@@ -68,10 +68,10 @@ const PanelButtons = () => {
         break;
 
       case ".":
-        if (!value){
+        if (!value || ["/", "*", "-", "+"].includes(lastItem)) {
           dispatch(setValue(0 + elem));
-          return dispatch(setFormula(0 + elem));
-        } 
+          return dispatch(setFormula(formula + 0 + elem));
+        }
         if (value.includes(".") && elem === ".") return;
         dispatch(setValue(value + elem));
         dispatch(setFormula(formula + elem));
