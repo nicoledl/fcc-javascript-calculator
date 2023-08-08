@@ -26,10 +26,11 @@ function calcularResultado(operando1, operando2, operador) {
   }
 }
 
-export function resolverFormula(formula) {
+export function resolveFormula(formula) {
   if (formula.match(/[/*-+]$/)) {
-    return formula.slice(0, -1);
+    formula = formula.slice(0, -1);
   }
+
   const operadores = [];
   const operandos = [];
 

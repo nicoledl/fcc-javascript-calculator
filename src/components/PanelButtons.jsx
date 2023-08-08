@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { buttons } from "./buttons";
 import { setResult, setFormula, setValue } from "../store";
-import { resolverFormula } from "./resolverFormula";
+import { resolveFormula } from "./resolveFormula";
 
 const PanelButtons = () => {
   const dispatch = useDispatch();
@@ -61,8 +61,12 @@ const PanelButtons = () => {
         break;
 
       case "=":
+        console.log(formula);
+        if (formula.match(/[/*-+]$/)) {
+          dispatch(setFormula(formula.slice(0, -1)));
+        }
         if (!value) return dispatch(setValue("=" + NaN));
-        const newResult = resolverFormula(formula);
+        const newResult = resolveFormula(formula);
         dispatch(setResult(newResult));
         dispatch(setValue(""));
         break;
