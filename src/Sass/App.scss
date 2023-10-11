@@ -14,6 +14,14 @@
       format("svg");
 }
 
+//Paleta de colores
+$pink: #ffc9d0;
+$hot-pink: #ef7c8e;
+$cream: #fae8e0;
+$mint: #b6fde6;
+$spearmint: #b6e2d3;
+$rosewater: #d8a7b1;
+
 .App {
   height: 100vh;
   display: grid;
@@ -23,7 +31,7 @@
 }
 
 body {
-  background: #c2c2d6;
+  background: $mint;
   -webkit-touch-callout: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -42,12 +50,14 @@ p {
 .author {
   margin-top: 15px;
   font-size: medium;
+  color: $hot-pink;
 }
 
 #calculator {
-  border: 2px solid #47476b;
+  border: 2px solid $hot-pink;
+  border-radius: 10px;
   padding: 5px;
-  background: black;
+  background: $pink;
   width: 320px;
   position: relative;
 
@@ -55,20 +65,27 @@ p {
     min-height: 20px;
     font-family: digital;
     font-size: 20px;
-    color: orange;
+    color: $rosewater;
     text-align: right;
     vertical-align: text-top;
     line-height: 20px;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    background-color: #ffff;
+    padding: 2px 5px 0 5px;
+    border-radius: 5px 5px 0 0;
   }
 
   .output-screen {
     font-size: 29px;
     font-family: digital;
-    color: white;
+    color: $hot-pink;
     text-align: right;
     line-height: 35px;
+    background-color: #ffff;
+    margin: 0 0 5px 0;
+    padding: 0 5px 0 5px;
+    border-radius: 0 0 5px 5px;
   }
 
   button {
@@ -78,32 +95,34 @@ p {
     height: 65px;
     width: 80px;
     color: white;
-    outline: 1px solid black;
+    outline: 1px solid $pink;
     border: none;
-    background: #4d4d4d;
+    background: $rosewater;
     font-family: Share Tech Mono, monospace;
     font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
   }
   button:hover {
-    color: black;
-    outline: 0.05em solid grey;
-    z-index: 3;
+    color: #262626;
+    filter: contrast(110%);
   }
   button:active {
-    filter: brightness(80%);
+    filter: brightness(90%);
   }
 
   .operators {
-    background: rgb(102, 102, 102);
+    background: $cream;
+    color: #ef7c8e;
   }
   .jumbo {
     width: 160px;
   }
   .jumbo:first-of-type {
-    background-color: #ac3939;
+    background-color: $hot-pink;
   }
   .equal {
-    background: rgb(0, 68, 102);
+    background: $spearmint;
     position: absolute;
     height: 130px;
     bottom: 5px;
